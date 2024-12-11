@@ -1,0 +1,165 @@
+## Overview
+Minimal viable prototype of a bridge that allows GPT Custom Actions to interact with basic MCP server capabilities. The MVP will focus on demonstrating the core translation layer with a single MCP server type.
+
+## Core Components
+
+### 1. Basic MCP Server Manager
+- **Purpose**: Simple management of a single MCP server instance
+- **MVP Functions**:
+  - Start/stop a single MCP server
+  - Basic error handling and restart
+  - Simple configuration via environment variables
+  - Basic stdout/stderr logging
+
+### 2. Essential Protocol Translation
+- **Purpose**: Basic translation between GPT Actions and MCP
+- **MVP Functions**:
+  - Convert MCP resource/tool endpoints to OpenAPI schema
+  - Transform basic MCP responses to GPT Action format
+  - Handle simple error cases
+  - Support text-only responses (no file handling initially)
+
+### 3. Simple REST API
+- **Purpose**: Minimal HTTP endpoint for GPT Actions
+- **MVP Functions**:
+  - Single endpoint for accessing MCP capabilities
+  - Basic request validation
+  - Simple error responses
+  - Synchronous request handling
+
+### 4. Basic Configuration
+- **Purpose**: Essential configuration storage
+- **MVP Functions**:
+  - Load configuration from file/environment variables
+  - Store MCP server settings
+  - Basic validation of settings
+
+## Technical MVP Requirements
+
+### Performance
+- Handle single requests sequentially
+- Basic timeout handling (30s max)
+- Support for 1-2 concurrent users
+
+### Security
+- Basic API key authentication
+- Input validation for requests
+- HTTPS support
+
+### Reliability
+- Basic error logging
+- Restart on crash
+- Simple status endpoint
+
+## MVP Implementation Scope
+
+### Supported MCP Features
+1. Resources:
+   - List available resources
+   - Read resource content
+   
+2. Tools:
+   - List available tools
+   - Execute simple tools
+
+### Not Included in MVP
+- File transfers
+- OAuth authentication
+- Admin interface
+- Multiple server support
+- Advanced error recovery
+- Caching
+- Metrics/monitoring
+
+## Development Approach
+
+### Technology
+- Python-based implementation
+- FastAPI for REST endpoints
+- Basic JSON file for configuration
+- Console logging
+- Single process architecture
+
+### Testing
+- Basic endpoint tests
+- Simple integration test
+- Manual testing script
+
+### Deployment
+- Local development setup
+- Basic Docker container
+- Simple startup script
+
+## Success Criteria
+1. Successfully start and manage one MCP server
+2. Convert MCP capabilities to GPT Actions schema
+3. Execute basic requests from GPT to MCP
+4. Handle and report basic errors
+5. Demonstrate full request/response cycle
+
+## Implementation Phases
+
+### Phase 1: Core Setup (Week 1)
+- Basic server manager
+- Configuration loading
+- Simple logging
+
+### Phase 2: Protocol Translation (Week 1-2)
+- OpenAPI schema generation
+- Basic request/response mapping
+- Error handling
+
+### Phase 3: API Layer (Week 2)
+- REST endpoint implementation
+- Authentication
+- Request validation
+
+### Phase 4: Testing & Documentation (Week 2-3)
+- Integration testing
+- Usage documentation
+- Deployment instructions
+
+
+
+## Directory structure with key files and their purposes
+
+mcp_gpt_bridge/
+├── LICENSE
+├── README.md
+├── pyproject.toml  # Modern Python project configuration
+├── .gitignore
+├── src/
+│   └── mcp_gpt_bridge/
+│       ├── __init__.py
+│       ├── main.py                 # Application entry point
+│       ├── config.py              # Configuration management
+│       ├── api/
+│       │   ├── __init__.py
+│       │   ├── router.py          # FastAPI router setup
+│       │   ├── endpoints.py       # API endpoint definitions
+│       │   └── schemas.py         # Pydantic models for API
+│       ├── mcp/
+│       │   ├── __init__.py
+│       │   ├── server_manager.py  # MCP server lifecycle management
+│       │   └── translator.py      # Protocol translation logic
+│       ├── models/
+│       │   ├── __init__.py
+│       │   ├── gpt_action.py      # GPT Action data models
+│       │   └── mcp_server.py      # MCP server data models
+│       └── utils/
+│           ├── __init__.py
+│           ├── logging.py         # Logging configuration
+│           └── errors.py          # Error handling
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py               # pytest configuration
+│   ├── test_api/
+│   │   ├── __init__.py
+│   │   └── test_endpoints.py
+│   └── test_mcp/
+│       ├── __init__.py
+│       └── test_server_manager.py
+└── examples/
+    ├── config.yaml               # Example configuration
+    └── weather_server/          # Example MCP server
+

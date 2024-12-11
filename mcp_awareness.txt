@@ -1,0 +1,69 @@
+1. Knowledge Graph Tools:
+- `create_entities` - Create multiple new entities
+- `create_relations` - Create relations between entities
+- `add_observations` - Add observations to existing entities
+- `delete_entities` - Delete entities and their relations
+- `delete_observations` - Delete specific observations
+- `delete_relations` - Delete relations
+- `read_graph` - Read the entire knowledge graph
+- `search_nodes` - Search for nodes based on a query
+- `open_nodes` - Open specific nodes by name
+
+2. File System Tools:
+- `read_file` - Read contents of a single file
+- `read_multiple_files` - Read multiple files simultaneously
+- `write_file` - Create or overwrite files
+- `create_directory` - Create new directories
+- `list_directory` - List files and directories
+- `move_file` - Move or rename files
+- `search_files` - Search for files matching a pattern
+- `get_file_info` - Get file metadata
+- `list_allowed_directories` - List accessible directories
+
+3. Note Management:
+- `read_notes` - Read multiple notes
+- `search_notes` - Search for notes by name
+
+4. Time Management:
+- `get_current_time` - Get current time in specific timezone
+- `convert_time` - Convert time between timezones
+
+5. Context Tools:
+- `query` - Find context in local files (PDF, CSV, DOCX, MD, TXT)
+
+6. Media Tools:
+- `get_transcript` - Extract transcript from YouTube video
+
+7. Git Tools:
+- `git_status` - Show working tree status
+- `git_diff_unstaged` - Show unstaged changes
+- `git_diff_staged` - Show staged changes
+- `git_commit` - Record changes to repository
+- `git_add` - Add files to staging
+- `git_reset` - Unstage changes
+- `git_log` - Show commit logs
+- `git_create_branch` - Create new branch
+
+8. MCP Server Tools:
+- `install_repo_mcp_server` - Install MCP server via npx/uvx
+- `install_local_mcp_server` - Install locally cloned MCP server
+
+9. Web Tools:
+- `fetch` - Fetch URL content
+- `search_google` - Search Google
+- `visit_page` - Visit webpage and extract content
+- `take_screenshot` - Take screenshot of current page
+
+10. GitHub Tools:
+- `create_or_update_file` - Create/update file in GitHub repo
+- `search_repositories` - Search GitHub repositories
+- `create_repository` - Create new GitHub repository
+- `get_file_contents` - Get contents from GitHub repo
+- `push_files` - Push multiple files to GitHub
+- `create_issue` - Create GitHub issue
+- `create_pull_request` - Create pull request
+- `fork_repository` - Fork a repository
+- `create_branch` - Create branch in GitHub repo
+
+11. Sequential Thinking Tool:
+- `sequentialthinking` - Tool for dynamic problem-solving through structured thoughts
